@@ -1,13 +1,16 @@
 #ifndef VBO_CLASS_H
 #define VBO_CLASS_H
 
-	//[!] Include glm into source code
 #include<glm/glm.hpp>
 #include <glad/glad.h>
 #include<vector>
 
 struct Vertex {
-	//requires glm to work :p
+	glm::vec3 position; 
+	glm::vec3 normal;
+	glm::vec3 color; 
+	glm::vec2 texUV;
+
 };
 
 class VBO {
