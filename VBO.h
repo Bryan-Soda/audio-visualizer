@@ -2,7 +2,7 @@
 #define VBO_CLASS_H
 
 	//[!] Include glm into source code
-//#include<glm/glm.hpp>
+#include<glm/glm.hpp>
 #include <glad/glad.h>
 #include<vector>
 
