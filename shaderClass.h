@@ -18,7 +18,7 @@ public:
 	void Activate();
 	void Delete();
 private:
-	void compileError(unsigned int shader, const char* type);
+	void compileErrors(unsigned int shader, const char* type);
 };
 
 #endif // !SHADER_CLASS_H
