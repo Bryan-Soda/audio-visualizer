@@ -27,6 +27,7 @@ void Mesh::Draw(Shader& shader, Camera& cam) {
 	shader.Activate();
 	VAO.Bind();
 
+	//[!]Diffuse and Specular lighting is still not fully implemented
 	unsigned int numDiffuse = 0;
 	unsigned int numSpecular = 0;
 
