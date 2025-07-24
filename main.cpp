@@ -1,10 +1,10 @@
 #include "Mesh.h"
-
+#include "miniaudio.h"
 
 const unsigned int width = 800;
 const unsigned int height = 800;
 
-// Vertices coordinates
+// Using coordinates
 Vertex vertices[] =
 { //               COORDINATES           /            COLORS          /           NORMALS         /       TEXTURE COORDINATES    //
 	Vertex{glm::vec3(-0.5f, 0.0f,  0.5f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
@@ -41,6 +41,7 @@ GLuint indices[] =
 	13,15,14
 
 };
+
 
 Vertex lightVertices[] =
 { //     COORDINATES     //
@@ -83,8 +84,7 @@ int main() {
 	//modern functions
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	//creates a 800x800px window with title "OpenGLTEST"
-	GLFWwindow* window = glfwCreateWindow(width, height, "OpenGLTEST", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Unnamed-Audio-Vis", NULL, NULL);
 
 	// Check if window creation was successful
 	if (window == NULL) {
@@ -117,12 +117,14 @@ int main() {
 
 
 	//Light object
+	
 	//Shader lightShader("light.vert", "light.frag");
 	//std::vector<Vertex> lightVerts(lightVertices, lightVertices + sizeof(lightVertices) / sizeof(Vertex));
 	//std::vector<GLuint> lightInd(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));
 	//Mesh light(lightVerts, lightInd, tex);
 
 	//Change the paramaters to change the color of the light (RGBA)!
+
 	//glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	//Change the lights position here
 	//glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -136,8 +138,10 @@ int main() {
 	//lightShader.Activate();
 	//glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
 	//glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+
 	shaderProgram.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
+	
 	//glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	//glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
